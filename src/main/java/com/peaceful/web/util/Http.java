@@ -1,6 +1,7 @@
 package com.peaceful.web.util;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.peaceful.common.util.StringUtils;
 
 import javax.servlet.http.Cookie;
@@ -175,11 +176,20 @@ public class Http {
      * @param result 返回详细信息
      */
     public static void responseJSON(int code, String result) {
+        responseString(JSON.toJSONString(new Response(code, result)));
+    }
+
+
+    public static void responseJSON(JSONObject jsonObject) {
+        responseString(jsonObject.toJSONString());
+    }
+
+    private static void responseString(String str) {
         HttpServletResponse response = getResponse();
         try {
             response.setContentType("application/x-json");
             PrintWriter writer = response.getWriter();
-            writer.write(JSON.toJSONString(new Response(code, result)));
+            writer.write(str);
             writer.flush();
             writer.close();
         } catch (IOException e) {

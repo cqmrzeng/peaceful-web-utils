@@ -11,7 +11,7 @@ peaceful-web-utils
 
 ##### GlobalApp
 
-webapp全局配置信息
+webapp全局配置信息：启动环境，构建版本号
 
 ##### Http
 

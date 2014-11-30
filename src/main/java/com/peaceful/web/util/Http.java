@@ -55,7 +55,7 @@ public class Http {
      * @param key
      * @return
      */
-    public static Object request(String key) {
+    public static Object param(String key) {
         return getRequest().getAttribute(key);
     }
 
@@ -65,7 +65,7 @@ public class Http {
      * @param key
      * @param value
      */
-    public static void request(String key, Object value) {
+    public static void param(String key, Object value) {
         getRequest().setAttribute(key, value);
     }
 
